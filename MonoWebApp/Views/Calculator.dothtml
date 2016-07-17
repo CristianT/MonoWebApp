@@ -1,0 +1,19 @@
+﻿@viewModel MonoWebApp.CalculatorViewModel, MonoWebApp
+@masterPage Views/Master/Master.dotmaster
+
+<dot:Content ContentPlaceHolderID="Main">
+		<p>
+			Enter the first number: 
+			<dot:TextBox Text="{value: Number1}" />
+		</p>
+		<p>
+			Enter the second number: 
+			<dot:TextBox Text="{value: Number2}" />
+		</p>
+		<p>
+			<dot:Button Text="Calculate" Click="{command: Calculate()}" />
+		</p>
+		<p>
+			The result is: {{value: Result}}
+		</p>
+</dot:Content>
