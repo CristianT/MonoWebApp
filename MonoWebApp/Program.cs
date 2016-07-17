@@ -13,7 +13,8 @@ namespace MonoWebApp
         {
             try
             {
-                string baseUrl = "http://localhost:5000";
+                // On Windows you must run as Admin for this to work, otherwise use http://localhost:5000
+                string baseUrl = "http://*:5000";
                 using (WebApp.Start<Startup>(baseUrl))
                 {
                     ConsoleKeyInfo c = new ConsoleKeyInfo();
