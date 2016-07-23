@@ -157,6 +157,19 @@ namespace MonoWebApp
                 FileSystem = new PhysicalFileSystem(@"./Content"),
             });
 
+            appBuilder.Map("/UpdateValue", app2 =>
+            {
+                app2.Use((context, next) =>
+                {
+                    Program.updateWait.WaitOne();
+
+                    context.Response.ContentType = "text/plain";
+                    context.Response.Write(Program.updateValue);
+
+                    return Task.FromResult(0);
+                });
+            });
+
             appBuilder.Run(context =>
             {
                 try

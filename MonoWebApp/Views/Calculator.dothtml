@@ -16,4 +16,22 @@
 		<p>
 			The result is: {{value: Result}}
 		</p>
+
+		<p>
+			Console key: <label id="consoleKey">not set</label>
+		</p>
+
+	<dot:InlineScript>
+		function updateValue()
+		{
+			$.get("/UpdateValue").done(function (data)
+			{
+				$('#consoleKey').text(data);
+				updateValue();
+			});
+		}
+
+		$(document).ready(updateValue);
+	</dot:InlineScript>
+
 </dot:Content>
